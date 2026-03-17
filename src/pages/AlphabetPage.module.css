@@ -1,0 +1,45 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.letterBtn {
+  aspect-ratio: 1;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: white;
+  border-radius: var(--radius-md);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  transition: transform 0.1s;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.letterBtn:active {
+  transform: scale(0.92);
+}

@@ -1,0 +1,68 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  min-height: var(--touch-min);
+}
+
+.item:hover {
+  background: var(--bg-card-hover);
+}
+
+.itemIcon {
+  font-size: 1.4rem;
+}
+
+.itemLabel {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.toggle {
+  width: 52px;
+  height: 32px;
+  border-radius: 16px;
+  padding: 4px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.toggleKnob {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.version {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 32px;
+}
