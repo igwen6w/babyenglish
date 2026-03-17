@@ -1,124 +1,261 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
-/* 欢迎区域 */
-.hero {
-  text-align: center;
-  padding: 32px 16px;
-  background: var(--bg-card);
-  border-radius: var(--radius-xl);
-  border-bottom: 4px solid var(--green);
-}
-
-.heroEmoji {
-  font-size: 4rem;
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
-.heroTitle {
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  margin-bottom: 4px;
+/* === 顶部 Profile === */
+.profile {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  border-bottom: 4px solid var(--green);
 }
 
-.heroDesc {
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  font-size: 3rem;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.levelBadge {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.xpText {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.xpBar {
+  height: 14px;
+  background: var(--bg-secondary);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.xpFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  border-radius: 7px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* === 继续学习按钮 === */
+.continueBtn {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  background: var(--green);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 900;
+  border-radius: var(--radius-lg);
+  border-bottom: 4px solid var(--green-dark);
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+.continueBtn:active { transform: scale(0.97); }
+
+/* === 每日目标 === */
+.dailySection {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+}
+
+.goalsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ringWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ringBg {
+  fill: none;
+  stroke: var(--bg-secondary);
+  stroke-width: 8;
+}
+
+.ringFill {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.ringText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.goalItems {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.goalItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  font-weight: 700;
   font-size: 1rem;
   color: var(--text-secondary);
 }
 
-/* 学习模块卡片 */
-.modules {
+.goalDone {
+  color: var(--green);
+  background: rgba(88, 204, 2, 0.15);
+}
+
+.goalLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.claimBtn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--gold);
+  color: #333;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-lg);
+  border-bottom: 4px solid var(--gold-dark);
+  animation: btn-glow 1.5s ease infinite alternate;
+}
+.claimBtn:active { transform: scale(0.97); }
+
+.claimed {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+@keyframes btn-glow {
+  0% { box-shadow: 0 0 8px rgba(255, 200, 0, 0.3); }
+  100% { box-shadow: 0 0 20px rgba(255, 200, 0, 0.6); }
+}
+
+/* === 快速统计 === */
+.stats {
+  display: flex;
+  gap: 12px;
+}
+
+.statCard {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.card {
-  display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-radius: var(--radius-lg);
-  color: white;
-  min-height: 80px;
-  text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
-}
-
-.card:active {
-  transform: scale(0.98);
-}
-
-.cardGreen { background: var(--green); }
-.cardBlue { background: var(--blue); }
-.cardGold { background: var(--gold); color: #333; }
-
-.cardIcon {
-  font-size: 2.5rem;
-  flex-shrink: 0;
-}
-
-.cardInfo {
-  flex: 1;
-}
-
-.cardTitle {
-  font-size: 1.2rem;
-  font-weight: 800;
-}
-
-.cardDesc {
-  font-size: 0.85rem;
-  opacity: 0.85;
-  font-weight: 600;
-}
-
-.cardArrow {
-  font-size: 1.2rem;
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-/* 学习进度 */
-.progress {
-  display: flex;
-  gap: 12px;
-}
-
-.progressCard {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
+  gap: 4px;
+  padding: 14px 8px;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 2px solid var(--bg-card-hover);
 }
 
-.progressIcon {
-  font-size: 2rem;
+.statIcon { font-size: 1.8rem; }
+.statValue { font-size: 1.4rem; font-weight: 900; color: var(--text-primary); }
+.statLabel { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; }
+
+/* === 学习模块卡片 === */
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.progressTitle {
-  font-size: 0.85rem;
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  color: white;
+  min-height: 68px;
+  text-decoration: none;
+  transition: transform 0.15s;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+}
+.card:active { transform: scale(0.98); }
+
+.cardGreen { background: var(--green); }
+.cardBlue { background: var(--blue); }
+.cardGold { background: var(--gold); color: #333; }
+
+.cardIcon { font-size: 2rem; flex-shrink: 0; }
+.cardInfo { flex: 1; }
+.cardTitle { font-size: 1.1rem; font-weight: 800; }
+.cardDesc { font-size: 0.8rem; opacity: 0.85; font-weight: 600; }
+.cardArrow { font-size: 1rem; opacity: 0.6; flex-shrink: 0; }
+
+/* === 成就区域 === */
+.badgeSection {
+  padding: 0 0 20px;
+}
+
+.badgeToggle {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-card);
   color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.progressValue {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--bg-card-hover);
 }
 
 @media (max-width: 480px) {
-  .progress {
-    flex-direction: column;
-  }
+  .stats { flex-direction: row; }
+  .goalItems { flex-direction: column; }
 }

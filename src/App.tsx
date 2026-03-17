@@ -13,6 +13,7 @@ import ImageQuizPage from './pages/ImageQuizPage'
 import MatchQuizPage from './pages/MatchQuizPage'
 import MemoryGamePage from './pages/MemoryGamePage'
 import QuizResultPage from './pages/QuizResultPage'
+import MapPage from './pages/MapPage'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <AppLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/map" element={<MapPage />} />
           <Route path="/alphabet" element={<AlphabetPage />} />
           <Route path="/alphabet/:letter" element={<AlphabetDetailPage />} />
           <Route path="/topics" element={<TopicPage />} />

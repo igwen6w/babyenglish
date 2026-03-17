@@ -1,0 +1,24 @@
+.container {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.piece {
+  position: absolute;
+  top: -20px;
+  border-radius: 2px;
+  animation: confetti-fall 2.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { opacity: 1; }
+  100% {
+    transform: translateY(100vh) rotate(var(--rotation, 360deg));
+    opacity: 0;
+  }
+}
