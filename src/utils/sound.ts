@@ -1,9 +1,26 @@
 // 音效系统 - 使用 Web Audio API 生成简单音效（不依赖外部文件）
+// iOS Safari 兼容：需要在用户交互后初始化 AudioContext
 
 let audioCtx: AudioContext | null = null
 
+/** 初始化音频上下文（必须在用户交互中调用，iOS Safari 要求） */
+export function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)()
+  }
+  // iOS Safari 下被 suspend 的 context 需要 resume
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume()
+  }
+}
+
 function getCtx(): AudioContext {
-  if (!audioCtx) audioCtx = new AudioContext()
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)()
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume()
+  }
   return audioCtx
 }
 

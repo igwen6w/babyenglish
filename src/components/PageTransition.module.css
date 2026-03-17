@@ -1,0 +1,35 @@
+/* 页面转场动画 */
+.wrapper {
+  width: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 前进：旧页面向左滑出 */
+.exitLeft {
+  transform: translateX(-100%);
+  opacity: 0.5;
+}
+
+/* 后退：旧页面向右滑出 */
+.exitRight {
+  transform: translateX(100%);
+  opacity: 0.5;
+}
+
+/* 新页面进入 */
+.enter {
+  transform: translateX(0);
+  opacity: 1;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(30%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
