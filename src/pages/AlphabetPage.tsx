@@ -1,28 +1,45 @@
-// 字母学习页（占位）
+// 字母学习页
+import { useNavigate } from 'react-router-dom'
+import { useLearningStore } from '../store/learningStore'
 import styles from './AlphabetPage.module.css'
+import alphabetData from '../data/alphabet'
 
 export default function AlphabetPage() {
-  // 26个字母的占位列表
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+  const navigate = useNavigate()
+  const learnedLetters = useLearningStore((s) => s.learnedLetters)
 
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>🔤 字母学习</h1>
-      <p className={styles.subtitle}>点击字母开始学习</p>
+      {/* 学习进度 */}
+      <div className={styles.progress}>
+        <div className={styles.progressText}>
+          已学习 {learnedLetters.length} / 26
+        </div>
+        <div className={styles.progressBar}>
+          <div
+            className={styles.progressFill}
+            style={{ width: `${(learnedLetters.length / 26) * 100}%` }}
+          />
+        </div>
+      </div>
 
       <div className={styles.grid}>
-        {letters.map((letter) => (
-          <button
-            key={letter}
-            className={styles.letterBtn}
-            style={{
-              // 彩色渐变效果
-              background: `hsl(${(letter.charCodeAt(0) - 65) * 14}, 70%, 55%)`
-            }}
-          >
-            {letter}
-          </button>
-        ))}
+        {alphabetData.map((item) => {
+          const learned = learnedLetters.includes(item.id)
+          return (
+            <button
+              key={item.id}
+              className={`${styles.letterBtn} ${learned ? styles.learned : ''}`}
+              style={{ background: `hsl(${(item.upper.charCodeAt(0) - 65) * 14}, 70%, 55%)` }}
+              onClick={() => navigate(`/alphabet/${item.id}`)}
+            >
+              <span className={styles.upper}>{item.upper}</span>
+              <span className={styles.lower}>{item.lower}</span>
+              {learned && <span className={styles.check}>✓</span>}
+            </button>
+          )
+        })}
       </div>
     </div>
   )

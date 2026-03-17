@@ -1,7 +1,13 @@
 // 首页 - 学习地图入口
+import { useLearningStore } from '../store/learningStore'
 import styles from './HomePage.module.css'
 
 export default function HomePage() {
+  const { todayStudyTime, streakDays, learnedLetters } = useLearningStore()
+
+  // 格式化学习时长
+  const minutes = Math.floor(todayStudyTime / 60)
+
   return (
     <div className={styles.page}>
       {/* 欢迎区域 */}
@@ -17,28 +23,28 @@ export default function HomePage() {
           <span className={styles.cardIcon}>🔤</span>
           <div className={styles.cardInfo}>
             <h2 className={styles.cardTitle}>字母学习</h2>
-            <p className={styles.cardDesc}>学习 26 个英文字母</p>
+            <p className={styles.cardDesc}>{learnedLetters.length} / 26 个字母</p>
           </div>
           <span className={styles.cardArrow}>▶</span>
         </a>
 
-        <div className={`${styles.card} ${styles.cardBlue}`} style={{ opacity: 0.6 }}>
+        <a href="/topics" className={`${styles.card} ${styles.cardBlue}`}>
           <span className={styles.cardIcon}>📚</span>
           <div className={styles.cardInfo}>
             <h2 className={styles.cardTitle}>主题词汇</h2>
-            <p className={styles.cardDesc}>即将开放</p>
+            <p className={styles.cardDesc}>颜色 · 动物 · 水果 · 数字</p>
           </div>
-          <span className={styles.cardArrow}>🔒</span>
-        </div>
+          <span className={styles.cardArrow}>▶</span>
+        </a>
 
-        <div className={`${styles.card} ${styles.cardGold}`} style={{ opacity: 0.6 }}>
+        <a href="/topics" className={`${styles.card} ${styles.cardGold}`}>
           <span className={styles.cardIcon}>🎮</span>
           <div className={styles.cardInfo}>
             <h2 className={styles.cardTitle}>互动练习</h2>
             <p className={styles.cardDesc}>即将开放</p>
           </div>
           <span className={styles.cardArrow}>🔒</span>
-        </div>
+        </a>
       </section>
 
       {/* 学习进度 */}
@@ -47,14 +53,14 @@ export default function HomePage() {
           <span className={styles.progressIcon}>⭐</span>
           <div>
             <div className={styles.progressTitle}>今日学习</div>
-            <div className={styles.progressValue}>0 / 5 分钟</div>
+            <div className={styles.progressValue}>{minutes} / 5 分钟</div>
           </div>
         </div>
         <div className={styles.progressCard}>
           <span className={styles.progressIcon}>🔥</span>
           <div>
             <div className={styles.progressTitle}>连续学习</div>
-            <div className={styles.progressValue}>1 天</div>
+            <div className={styles.progressValue}>{streakDays || 1} 天</div>
           </div>
         </div>
       </section>

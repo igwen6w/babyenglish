@@ -1,0 +1,246 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  border-radius: var(--radius-xl);
+  color: white;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s;
+  min-height: 120px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card:active {
+  transform: scale(0.96);
+}
+
+.emoji {
+  font-size: 3rem;
+}
+
+.nameEn {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.nameZh {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* ===== 主题详情页 ===== */
+.detailPage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 60vh;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  font-weight: 700;
+}
+
+.detailTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* 进度 */
+.progress {
+  width: 100%;
+}
+
+.progressText {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.progressBar {
+  height: 8px;
+  background: var(--bg-card);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+/* 词汇网格 */
+.wordGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.wordCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border-bottom: 4px solid var(--bg-card-hover);
+  transition: transform 0.1s;
+  min-height: 100px;
+}
+
+.wordCard:active {
+  transform: scale(0.94);
+}
+
+.wordLearned {
+  box-shadow: 0 0 0 3px var(--blue);
+}
+
+.wordEmoji {
+  font-size: 2.5rem;
+}
+
+.wordEn {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.wordZh {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.wordCheck {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.7rem;
+  background: var(--blue);
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 弹层 */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.modalCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.modalEmoji {
+  font-size: 6rem;
+}
+
+.modalEn {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.modalZh {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.colorSwatch {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.modalExample {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+}
+
+.speakBtn {
+  padding: 14px 40px;
+  background: var(--green);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: var(--radius-lg);
+  border-bottom: 4px solid var(--green-dark);
+  transition: transform 0.1s;
+  margin-top: 8px;
+}
+
+.speakBtn:active {
+  transform: scale(0.96);
+}
+
+.closeBtn {
+  padding: 10px 32px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+}

@@ -10,30 +10,53 @@
   font-weight: 900;
 }
 
-.subtitle {
+/* 学习进度 */
+.progress {
+  width: 100%;
+  max-width: 600px;
+}
+
+.progressText {
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.progressBar {
+  height: 8px;
+  background: var(--bg-card);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  transition: width 0.3s;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
   gap: 10px;
   width: 100%;
   max-width: 600px;
 }
 
 .letterBtn {
+  position: relative;
   aspect-ratio: 1;
-  font-size: 1.8rem;
   font-weight: 900;
   color: white;
   border-radius: var(--radius-md);
   border-bottom: 4px solid rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2px;
   min-width: var(--touch-min);
   min-height: var(--touch-min);
   transition: transform 0.1s;
@@ -42,4 +65,145 @@
 
 .letterBtn:active {
   transform: scale(0.92);
+}
+
+.upper {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.lower {
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.learned {
+  box-shadow: 0 0 0 3px var(--green);
+}
+
+.check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.75rem;
+  background: var(--green);
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+/* ===== 字母详情页样式 ===== */
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: 60vh;
+}
+
+.backBtn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  font-weight: 700;
+}
+
+.bigLetter {
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--green);
+  text-shadow: 0 4px 12px rgba(88, 204, 2, 0.3);
+  line-height: 1;
+}
+
+.lowercase {
+  font-size: 4rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.wordCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 32px 40px;
+  border-radius: var(--radius-xl);
+  border-bottom: 4px solid var(--bg-card-hover);
+  width: 100%;
+  max-width: 360px;
+}
+
+.wordEmoji {
+  font-size: 5rem;
+}
+
+.wordEn {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.wordZh {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.speakBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 48px;
+  background: var(--green);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: var(--radius-lg);
+  border-bottom: 4px solid var(--green-dark);
+  min-width: 200px;
+  transition: transform 0.1s;
+}
+
+.speakBtn:active {
+  transform: scale(0.96);
+}
+
+.navRow {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.navBtn {
+  flex: 1;
+  padding: 14px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--bg-card-hover);
+  transition: transform 0.1s;
+}
+
+.navBtn:active {
+  transform: scale(0.96);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
 }
