@@ -37,13 +37,13 @@ export default function HomePage() {
           <span className={styles.cardArrow}>▶</span>
         </a>
 
-        <a href="/topics" className={`${styles.card} ${styles.cardGold}`}>
+        <a href="/practice" className={`${styles.card} ${styles.cardGold}`}>
           <span className={styles.cardIcon}>🎮</span>
           <div className={styles.cardInfo}>
             <h2 className={styles.cardTitle}>互动练习</h2>
-            <p className={styles.cardDesc}>即将开放</p>
+            <p className={styles.cardDesc}>听音选图 · 看图选词 · 配对 · 翻牌</p>
           </div>
-          <span className={styles.cardArrow}>🔒</span>
+          <span className={styles.cardArrow}>▶</span>
         </a>
       </section>
 
