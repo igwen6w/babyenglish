@@ -1,0 +1,150 @@
+/* 首次引导页面样式 */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg-primary);
+  padding: 20px;
+  /* iOS 安全区域 */
+  padding-top: max(20px, env(safe-area-inset-top));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+/* 进度条 */
+.progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.dotActive {
+  background: var(--green);
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* 内容区 */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.emoji {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin-bottom: 32px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* 每日目标选择 */
+.goalOptions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.goalBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border: 3px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-primary);
+}
+
+.goalActive {
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.goalNum {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.goalLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* 操作区 */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  gap: 16px;
+}
+
+.skipBtn {
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.nextBtn {
+  flex: 1;
+  max-width: 240px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 16px 32px;
+  border: none;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-left: auto;
+}
+
+.nextBtn:active {
+  border-bottom-width: 0;
+  transform: translateY(2px);
+}
