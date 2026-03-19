@@ -32,7 +32,11 @@ const steps = [
   },
 ]
 
-export default function OnboardingPage() {
+interface OnboardingPageProps {
+  onFinish?: () => void
+}
+
+export default function OnboardingPage({ onFinish }: OnboardingPageProps) {
   const [step, setStep] = React.useState(0)
   const [dailyGoal, setDailyGoal] = React.useState(10)
   const navigate = useNavigate()
@@ -47,7 +51,7 @@ export default function OnboardingPage() {
   const handleFinish = () => {
     localStorage.setItem(ONBOARDING_KEY, 'true')
     localStorage.setItem('babyenglish_daily_goal', String(dailyGoal))
-    navigate('/', { replace: true })
+    onFinish?.()
   }
 
   const next = () => {

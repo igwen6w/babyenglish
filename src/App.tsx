@@ -37,7 +37,7 @@ function App() {
       <ErrorBoundary>
         <BrowserRouter>
           <Routes>
-            <Route path="*" element={<OnboardingPage />} />
+            <Route path="*" element={<OnboardingPage onFinish={() => setOnboarded(true)} />} />
           </Routes>
         </BrowserRouter>
       </ErrorBoundary>
