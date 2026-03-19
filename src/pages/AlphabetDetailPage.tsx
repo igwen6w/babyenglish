@@ -31,8 +31,11 @@ export default function AlphabetDetailPage() {
         ← 返回字母表
       </button>
 
-      <div className={styles.bigLetter}>{item.upper}</div>
-      <div className={styles.lowercase}>{item.lower}</div>
+      <button className={styles.letterSpeakBtn} onClick={() => speak(item.upper)}>
+        <div className={styles.bigLetter}>{item.upper}</div>
+        <div className={styles.lowercase}>{item.lower}</div>
+        <span className={styles.letterSpeakHint}>🔊 点击发音</span>
+      </button>
 
       <div className={styles.wordCard}>
         <div className={styles.wordEmoji}>{item.emoji}</div>
